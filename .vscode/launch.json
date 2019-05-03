@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Debug Node",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": [
+          "run-script",
+          "debug:node"
+        ],
+        "port": 9229,
+        "console": "externalTerminal",
+		"timeout": 50000,
+		"restart": true
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Build & Watch Angular",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": [
+          "run-script",
+          "debug:angular"
+        ],
+        "port": 9229,
+        "console": "externalTerminal"
+      }
+
+    ]
+}

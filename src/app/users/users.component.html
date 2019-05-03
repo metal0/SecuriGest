@@ -1,0 +1,16 @@
+<table class="table table-striped col-8">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">E-mail</th>
+			<th scope="col">Data de criação</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let user of users; index as i">
+			<th scope="row">{{ i + 1 }}</th>
+			<td>{{ user.email }}</td>
+			<td>{{ user.created_on | date:'shortDate' }}</td>
+		</tr>
+	</tbody>
+</table>

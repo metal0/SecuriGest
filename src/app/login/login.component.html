@@ -1,0 +1,38 @@
+<div class="container">
+	<h1 class="text-center display-4">Iniciar sessão</h1>
+	<form class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 m-auto" (ngSubmit)="onSubmit()" #form="ngForm">
+		<div class="form-group">
+			<label for="email">E-mail</label>
+			<input type="email" class="form-control" id="email" placeholder="Introduzir e-mail" required email
+				[(ngModel)]="user.email" name="email" #email="ngModel">
+			<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger small">
+
+				<div [hidden]="!email.errors.required">
+					Preenchimento obrigatório.
+				</div>
+				<div [hidden]="!email.errors.email">
+					E-mail inválido.
+				</div>
+
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="password">Palavra-passe</label>
+			<input type="password" class="form-control" id="password" placeholder="Palavra-passe" required
+				[(ngModel)]="user.password" name="password" #password="ngModel">
+			<div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger small">
+
+				<div [hidden]="!password.errors.required">
+					Preenchimento obrigatório.
+				</div>
+
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary" [disabled]="!form.form.valid">Entrar</button>
+		<small class="form-text text-muted">Não tens conta?
+			<a href="/register">Regista-te</a>.</small>
+		<div *ngIf="invalidLogin" class="alert alert-danger small mt-3">
+			E-mail/palavra-passe incorreta.
+		</div>
+	</form>
+</div>
