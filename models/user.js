@@ -9,7 +9,12 @@ const userSchema = new mongoose.Schema({
 		required: true
 	},
 	password: { type: String, required: true },
-	created_on: { type: Date, default: Date.now }
+	created_on: { type: Date, default: Date.now },
+	name:{type:String ,required: true},
+	biography: {type:String},
+	img: { data: Buffer, contentType: String },
+	calendar: {type:String},//MUDAR O TIPO
+	brithDate:{ type: Date}
 });
 
 module.exports = mongoose.model('user', userSchema, 'users');
