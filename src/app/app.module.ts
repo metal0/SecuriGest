@@ -16,9 +16,10 @@ import { UserService } from './user.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { HomeComponent } from './home/home.component';
+import { RecoverComponent } from './recover/recover.component';
 
 @NgModule({
-	declarations: [AppComponent, LoginComponent, RegisterComponent, UsersComponent, HomeComponent],
+	declarations: [AppComponent, LoginComponent, RegisterComponent, UsersComponent, HomeComponent, RecoverComponent],
 	imports: [
 	BrowserModule,
 	AppRoutingModule,
