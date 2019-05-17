@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 
 @Injectable({
 	providedIn: 'root'
-	})
+})
 export class AuthService {
-	private registerUrl = `${document.location.origin}/api/register`;
+	private registerUrl = `${document.location.origin}/api/users`;
 	private loginUrl = `${document.location.origin}/api/login`;
+	private recoverUrl = `${document.location.origin}/api/recover`;
 	constructor(private http: HttpClient, private router: Router) {}
 
 	registerUser(user) {
@@ -20,7 +21,9 @@ export class AuthService {
 
 	logoutUser() {
 		localStorage.removeItem('token');
-		this.router.navigate(['/']);
+		this.router.navigate([
+			'/'
+		]);
 	}
 
 	loggedIn() {
@@ -29,5 +32,9 @@ export class AuthService {
 
 	getToken() {
 		return localStorage.getItem('token');
+	}
+
+	recover(user) {
+		return this.http.post<any>(this.recoverUrl, user);
 	}
 }

@@ -3,30 +3,29 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-	selector: 'app-login',
-	templateUrl: './login.component.html',
+	selector: 'app-recover',
+	templateUrl: './recover.component.html',
 	styleUrls: [
-		'./login.component.css'
+		'./recover.component.css'
 	]
 })
-export class LoginComponent implements OnInit {
-	user = { email: '', password: '' };
-	invalidLogin = false;
+export class RecoverComponent implements OnInit {
+	user = { email: '' };
+	invalidRecover = false;
 
 	constructor(private auth: AuthService, private router: Router) {}
 
 	ngOnInit() {}
 
 	onSubmit() {
-		this.auth.loginUser(this.user).subscribe(
+		this.auth.recover(this.user).subscribe(
 			(res) => {
-				localStorage.setItem('token', res.token);
 				this.router.navigate([
-					'/users'
+					'/login'
 				]);
 			},
 			(err) => {
-				this.invalidLogin = true;
+				this.invalidRecover = true;
 			}
 		);
 	}

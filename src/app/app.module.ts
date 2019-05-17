@@ -22,6 +22,7 @@ import { RoomComponent } from './rooms/room/room.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomListComponent } from './rooms/room-list/room-list.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { RecoverComponent } from './recover/recover.component';
 import { CommonModule } from '@angular/common';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -30,7 +31,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarProfileComponent } from './calendar-profile/calendar-profile.component';
 
 @NgModule({
-	declarations: [AppComponent, LoginComponent, RegisterComponent, UsersComponent, HomeComponent, RoomComponent, RoomsComponent, RoomListComponent, PerfilComponent, CalendarProfileComponent],
+	declarations: [AppComponent, LoginComponent, RegisterComponent, UsersComponent, HomeComponent, RecoverComponent, RoomComponent, RoomsComponent, RoomListComponent, PerfilComponent, CalendarProfileComponent],
 	imports: [
 	BrowserModule,
 	AppRoutingModule,
