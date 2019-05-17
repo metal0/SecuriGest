@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { AuthGuard } from './auth.guard';
 import { RoomsComponent} from './rooms/rooms.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	{ path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
 	{ path: 'salas' , component: RoomsComponent },
+	{ path: 'perfil' , component: PerfilComponent },
 	{ path: '**', redirectTo: '' },
 	
 ];

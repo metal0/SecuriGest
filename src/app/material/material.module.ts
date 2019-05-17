@@ -2,27 +2,28 @@ import { NgModule } from '@angular/core';
 import {MatDatepickerModule, 
         MatNativeDateModule,
         MatFormFieldModule,
-        MatCardModule
+        MatCardModule,
+        MatInputModule,
+        MatSlideToggleModule
                              } from '@angular/material';
 
-import { ReactiveFormsModule,
-         FormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
     MatDatepickerModule, 
     MatNativeDateModule,
     MatCardModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
-    FormsModule
+    MatInputModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatDatepickerModule, 
     MatNativeDateModule,
     MatCardModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
-    FormsModule
+    MatInputModule,
+    MatSlideToggleModule
   ]
 })
 export class MaterialModule { }

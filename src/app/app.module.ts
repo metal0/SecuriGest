@@ -21,10 +21,16 @@ import {MaterialModule} from './material/material.module';
 import { RoomComponent } from './rooms/room/room.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomListComponent } from './rooms/room-list/room-list.component';
-
+import { PerfilComponent } from './perfil/perfil.component';
+import { CommonModule } from '@angular/common';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { CalendarProfileComponent } from './calendar-profile/calendar-profile.component';
 
 @NgModule({
-	declarations: [AppComponent, LoginComponent, RegisterComponent, UsersComponent, HomeComponent, RoomComponent, RoomsComponent, RoomListComponent],
+	declarations: [AppComponent, LoginComponent, RegisterComponent, UsersComponent, HomeComponent, RoomComponent, RoomsComponent, RoomListComponent, PerfilComponent, CalendarProfileComponent],
 	imports: [
 	BrowserModule,
 	AppRoutingModule,
@@ -33,7 +39,16 @@ import { RoomListComponent } from './rooms/room-list/room-list.component';
 	FormsModule,
 	HttpClientModule,
 	BrowserAnimationsModule,
-	MaterialModule
+	MaterialModule,
+	FormsModule, 
+	FlatpickrModule.forRoot(),
+	CommonModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
 	],
 	providers: [
 	AuthService,
@@ -45,6 +60,7 @@ import { RoomListComponent } from './rooms/room-list/room-list.component';
 	multi: true
 	}
 	],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
+	exports: [CalendarProfileComponent]
 	})
 export class AppModule {}

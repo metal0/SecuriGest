@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
 	biography: {type:String},
 	img: { data: Buffer, contentType: String },
 	calendar: {type:String},//MUDAR O TIPO
-	brithDate:{ type: Date}
+	birthDate:{ type: Date}
 });
 
 module.exports = mongoose.model('user', userSchema, 'users');
