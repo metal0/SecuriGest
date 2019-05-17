@@ -1,20 +1,21 @@
 <form #form="ngForm">
-  <div class="form-group">
-    <label >Pavilhao</label>
-    <input name = 'pavilion' #pavilion='ngModel' [(ngModel)]='service.formData.pavilion' class="form-control" required>
-  </div>
-  <div class="form-group">
-      <label >Numero</label>
-      <input name = 'number' #number='ngModel' [(ngModel)]='service.formData.number' class="form-control" required>
-  </div>
-  <div class="form-row">
-      <div class="form-group col-md-6">
-          <label >Tipo</label>
-          <input name = 'type' #type='ngModel' [(ngModel)]='service.formData.type' class="form-control" required>
-      </div>
-  </div>
-  <div class="form-group">
-    <button type="reset"  class="btn btn-lg btn-outline-danger btn-block ">Limpar</button>
-    <button type="submit" class="btn btn-lg btn-outline-success btn-block ">Submeter</button>
-  </div>
+	<div class="form-group">
+		<label>Pavilhao</label>
+		<input name='pavilion' #pavilion='ngModel' [(ngModel)]='service.formData.pavilion' class="form-control"
+			required>
+	</div>
+	<div class="form-group">
+		<label>Numero</label>
+		<input name='number' #number='ngModel' [(ngModel)]='service.formData.number' class="form-control" required>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label>Tipo</label>
+			<input name='type' #type='ngModel' [(ngModel)]='service.formData.type' class="form-control" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<button type="reset" class="btn btn-lg btn-outline-danger btn-block ">Limpar</button>
+		<button type="submit" class="btn btn-lg btn-outline-success btn-block ">Submeter</button>
+	</div>
 </form>

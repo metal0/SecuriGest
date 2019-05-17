@@ -16,16 +16,16 @@
 			<li [routerLink]="['/salas']" routerLinkActive="active" class="nav-item">
 				<a class="nav-link" href="/salas">Salas</a>
 			</li>
-			
+
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li [routerLink]="['/perfil']" routerLinkActive="active" class="nav-item">
 				<a class="nav-link" href="/perfil">Perfil</a>
 			</li>
-			<li *ngIf="!authService.loggedIn()" [routerLink]="['/login']" routerLinkActive="active" class="nav-item">
+			<li *ngIf="!loggedIn()" [routerLink]="['/login']" routerLinkActive="active" class="nav-item">
 				<a class="nav-link" href="/login">Iniciar sessão</a>
 			</li>
-			<li *ngIf="authService.loggedIn()" (click)="authService.logoutUser()" class="nav-item">
+			<li *ngIf="loggedIn()" (click)="logout()" class="nav-item">
 				<a class="nav-link cursor-pointer">Terminar sessão</a>
 			</li>
 
