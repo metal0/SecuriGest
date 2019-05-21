@@ -1,23 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PerfilComponent } from './perfil.component';
+import { ReqRoomComponent } from './req-room.component';
 
-describe('PerfilComponent', () => {
-	let component: PerfilComponent;
-	let fixture: ComponentFixture<PerfilComponent>;
+describe('ReqRoomComponent', () => {
+	let component: ReqRoomComponent;
+	let fixture: ComponentFixture<ReqRoomComponent>;
 
 	beforeEach(
 		async(() => {
 			TestBed.configureTestingModule({
 				declarations: [
-					PerfilComponent
+					ReqRoomComponent
 				]
 			}).compileComponents();
 		})
 	);
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(PerfilComponent);
+		fixture = TestBed.createComponent(ReqRoomComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});
