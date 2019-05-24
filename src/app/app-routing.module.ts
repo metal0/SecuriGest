@@ -9,6 +9,7 @@ import { AuthGuard } from './auth.guard';
 import { RoomsComponent } from './rooms/rooms.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RecoverComponent } from './recover/recover.component';
+import { EntriesExitsComponent } from './entries-exits/entries-exits.component';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -35,7 +36,10 @@ const routes: Routes = [
 			AuthGuard
 		]
 	},
+	{ path: 'salas', component: RoomsComponent },
+	{ path: 'perfil', component: PerfilComponent },
 	{ path: 'recover', component: RecoverComponent },
+	{ path: 'entry-exit', component: EntriesExitsComponent },
 	{ path: '**', redirectTo: '' }
 ];
 

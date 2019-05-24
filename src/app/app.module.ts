@@ -29,9 +29,10 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarProfileComponent } from './calendar-profile/calendar-profile.component';
+import { EntriesExitsComponent } from './entries-exits/entries-exits.component';
 
 @NgModule({
-	declarations: [AppComponent, LoginComponent, RegisterComponent, UsersComponent, HomeComponent, RecoverComponent, RoomComponent, RoomsComponent, RoomListComponent, PerfilComponent, CalendarProfileComponent],
+	declarations: [AppComponent, LoginComponent, RegisterComponent, UsersComponent, HomeComponent, RecoverComponent, RoomComponent, RoomsComponent, RoomListComponent, PerfilComponent, CalendarProfileComponent, EntriesExitsComponent],
 	imports: [
 	BrowserModule,
 	AppRoutingModule,
