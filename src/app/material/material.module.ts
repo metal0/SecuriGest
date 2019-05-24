@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import {
 	MatAutocompleteModule,
 	MatBadgeModule,
@@ -41,6 +40,13 @@ import {
 
 @NgModule({
 	imports: [
+		MatDatepickerModule,
+		MatNativeDateModule,
+		MatCardModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatSlideToggleModule,
+		MatTableModule,
 		MatAutocompleteModule,
 		MatBadgeModule,
 		MatBottomSheetModule,
@@ -79,6 +85,13 @@ import {
 		MatTreeModule
 	],
 	exports: [
+		MatDatepickerModule,
+		MatNativeDateModule,
+		MatCardModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatTableModule,
+		MatSlideToggleModule,
 		MatAutocompleteModule,
 		MatBadgeModule,
 		MatBottomSheetModule,

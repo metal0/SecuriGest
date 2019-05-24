@@ -30,6 +30,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarProfileComponent } from './calendar-profile/calendar-profile.component';
 import { ReqRoomComponent } from './req-room/req-room.component';
+import { EntriesExitsComponent } from './entries-exits/entries-exits.component';
 
 @NgModule({
 	declarations: [
@@ -44,7 +45,7 @@ import { ReqRoomComponent } from './req-room/req-room.component';
 		RoomListComponent,
 		PerfilComponent,
 		CalendarProfileComponent,
-		ReqRoomComponent
+		EntriesExitsComponent
 	],
 	imports: [
 		BrowserModule,
