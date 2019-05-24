@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const db = `mongodb+srv://${process.env.API_USER}:${process.env.API_KEY}@${process.env.API_URL}/apidb?retryWrites=true`;
 
 const userController = require('../controllers/userController');
+const roomController = require('../controllers/roomController');
 
 const middleware = require('../middlewares/authentication');
 const authentication = require('../helpers/authentication');
@@ -26,6 +27,9 @@ router.get('/', function(req, res, next) {
 // Utilizadores //
 router.get('/users', middleware.verifyToken, userController.user_list);
 router.post('/users', userController.user_create);
+
+// Salas //
+router.get('/rooms', middleware.verifyToken, roomController);
 
 // Autenticação //
 router.post('/login', authentication.login);
