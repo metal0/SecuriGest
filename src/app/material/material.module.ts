@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import {
 	MatAutocompleteModule,
-	MatTableDataSource,
 	MatBadgeModule,
 	MatBottomSheetModule,
 	MatButtonModule,
@@ -47,7 +46,6 @@ import {
 		MatBottomSheetModule,
 		MatButtonModule,
 		MatFormFieldModule,
-		MatTableDataSource,
 		MatButtonToggleModule,
 		MatCardModule,
 		MatCheckboxModule,
@@ -85,7 +83,6 @@ import {
 		MatBadgeModule,
 		MatBottomSheetModule,
 		MatButtonModule,
-		MatTableDataSource,
 		MatFormFieldModule,
 		MatButtonToggleModule,
 		MatCardModule,
