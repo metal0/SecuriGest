@@ -1,0 +1,28 @@
+<div class="col-12">
+
+    <button mat-raised-button color="#0066ff">Save</button>
+    <mat-slide-toggle name='EDIT' [(ngModel)]="edit">Edit!</mat-slide-toggle>
+    <div>
+    <mat-form-field>
+      <input matInput placeholder="Nome"  [disabled]= '!edit' value = 'Tiago'>
+    </mat-form-field>
+  </div>
+  <div>
+      <mat-form-field>
+        <input matInput placeholder="email"  [disabled]= '!edit' value = 'tiago@eusebio'>
+      </mat-form-field>
+  </div>
+  <mat-form-field class="example-full-width">
+      <input matInput [max]="maxDate" [disabled]= '!edit' [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  <div>
+    <mat-form-field class='w-100 h-20'>
+      <textarea matInput rows="5" placeholder="Biografia" [disabled]= '!edit'>A biography is simply an account of someone’s life written by another person. A biography can be short in the case of few sentences biography, and it can also be long enough to fill an entire book. The short biographies explain a person’s basic life facts and their importance, but the long biographies would go an extra mile and include more details to make an interesting read. You may find yourself in a situation which requires you to write a biography of a famous person, a close friend or a relative. For this reason, it pays to know how to come up with a biography and the important details that you should include in it. The lives of many people have interesting bits of information, but you ought to know what to capture in the biography and what to leave out.</textarea>
+    </mat-form-field>
+  </div>
+  <div>
+  <app-calendar-profile></app-calendar-profile>
+</div>
+  </div>
