@@ -33,10 +33,6 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  
 }
 
-export class DatepickerMinMaxExample {
-  
-}
+export class DatepickerMinMaxExample { }
