@@ -6,7 +6,7 @@ describe('TokenInterceptorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TokenInterceptorService = TestBed.get(TokenInterceptorService);
-    expect(service).toBeTruthy();
+	const service: TokenInterceptorService = TestBed.get(TokenInterceptorService);
+	expect(service).toBeTruthy();
   });
 });
