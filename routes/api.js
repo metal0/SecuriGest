@@ -29,7 +29,8 @@ router.get('/users', middleware.verifyToken, userController.user_list);
 router.post('/users', userController.user_create);
 
 // Salas //
-router.get('/rooms', middleware.verifyToken, roomController);
+router.get('/rooms', roomController.room_list);
+router.post('/rooms', roomController.room_create);
 
 // Autenticação //
 router.post('/login', authentication.login);

@@ -3,7 +3,11 @@ const User = require('../models/user');
 const debug = require('debug')('securi-gest:userController');
 const jwt = require('jsonwebtoken');
 
-// Mostrar listagem de utilizadores
+/**
+ * Função para listagem de utilizadores
+ * @param {Request} req - Pedido
+ * @param {Response} res - Resposta
+ */
 exports.user_list = function(req, res) {
 	User.find((err, users) => {
 		if (err) {
@@ -14,7 +18,11 @@ exports.user_list = function(req, res) {
 	});
 };
 
-// Criar utilizador
+/**
+ * Função para criação de utilizadores
+ * @param {Request} req - Pedido
+ * @param {Response} res - Resposta
+ */
 exports.user_create = function(req, res) {
 	let userData = req.body;
 	let user = new User(userData);

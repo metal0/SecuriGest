@@ -3,6 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var compression = require('compression');
 
 var api = require('./routes/api');
 
@@ -12,6 +13,7 @@ var app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: 'false' }));
+app.use(compression());
 
 // Back-end (Routing do Express)
 app.use('/api', api);

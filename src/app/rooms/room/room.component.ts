@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RoomsServiceService } from '../rooms-service.service';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm, NgModel } from '@angular/forms';
 import { Room } from '../room.model';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-room',
@@ -12,22 +13,29 @@ import { Room } from '../room.model';
 })
 export class RoomComponent implements OnInit {
 	form: NgForm;
-	constructor(public service: RoomsServiceService) {}
+	@ViewChild('number') number: NgModel;
+	room = { pavilion: '', number: '', type: '' };
+	constructor(public service: RoomsServiceService, private router: Router) {}
 
 	ngOnInit() {
 		this.resetForm(this.form);
 	}
 
 	resetForm(form: NgForm) {
-		if (form != null) form.resetForm;
-
-		this.service.formData = {
-			number: 5,
-			pavilion: '',
-			type: ''
-		};
+		if (form != null) {
+			form.resetForm();
+		}
 	}
-	onSubmit(form: NgForm) {
-		this.service.formData.number = 2;
+	onSubmit() {
+		this.service.submitRoom(this.room).subscribe(
+			(res) => {
+				this.router.navigate([
+					'/rooms'
+				]);
+			},
+			(err) => {
+				this.number.control.setErrors({ conflict: true });
+			}
+		);
 	}
 }

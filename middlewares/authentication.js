@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
  * @param {Request} req - Pedido
  * @param {Response} res - Resposta
  * @param {NextFunction} next - Próximo pedido
+ * @return {void}
  */
 exports.verifyToken = function(req, res, next) {
 	if (!req.headers.authorization) {

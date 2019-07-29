@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const roomSchema = new mongoose.Schema({
-	pavillion  : {
+	pavilion   : {
 		type      : String,
 		uppercase : true,
 		trim      : true,
@@ -19,6 +19,6 @@ const roomSchema = new mongoose.Schema({
 	created_on : { type: Date, default: Date.now }
 });
 
-roomSchema.index({ pavillion: 1, number: 1 }, { unique: true });
+roomSchema.index({ pavilion: 1, number: 1 }, { unique: true });
 
-module.exports = mongoose.model('room', userSchema, 'rooms');
+module.exports = mongoose.model('room', roomSchema, 'rooms');

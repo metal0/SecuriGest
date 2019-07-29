@@ -6,8 +6,10 @@ import { Router } from '@angular/router';
 @Component({
 	selector: 'app-register',
 	templateUrl: './register.component.html',
-	styleUrls: ['./register.component.css']
-	})
+	styleUrls: [
+		'./register.component.css'
+	]
+})
 export class RegisterComponent implements OnInit {
 	@ViewChild('email') email: NgModel;
 	user = { email: '', password: '' };
@@ -17,11 +19,13 @@ export class RegisterComponent implements OnInit {
 	}
 	onSubmit() {
 		this.auth.registerUser(this.user).subscribe(
-			res => {
+			(res) => {
 				localStorage.setItem('token', res.token);
-				this.router.navigate(['/users']);
+				this.router.navigate([
+					'/users'
+				]);
 			},
-			err => {
+			(err) => {
 				this.email.control.setErrors({ conflict: true });
 			}
 		);
