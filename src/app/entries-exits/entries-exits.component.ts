@@ -43,6 +43,6 @@ export class EntriesExitsComponent implements OnInit {
 
 	ngOnInit() {
 		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-		//Mudar para base de dados;
+		// Mudar para base de dados;
 	}
 }

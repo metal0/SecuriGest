@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
 })
 export class RoomsServiceService {
 	private roomsUrl = `${document.location.origin}/api/rooms`;
-	public formData: Room;
+	public formData = new Room();
 	public rooms: Room[];
 
 	constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
@@ -37,4 +37,5 @@ export class RoomsServiceService {
 			}
 		);
 	}
+	delRoom() {}
 }
