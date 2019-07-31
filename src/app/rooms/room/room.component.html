@@ -1,7 +1,8 @@
 <form (ngSubmit)="onSubmit()" #form="ngForm">
 	<div class="form-group">
 		<label>Pavilhão</label>
-		<input name='pavilion' #pavilion='ngModel' [(ngModel)]='room.pavilion' class="form-control" required>
+		<input name='pavilion' #pavilion='ngModel' [(ngModel)]='service.formData.pavilion' class="form-control"
+			required>
 		<div *ngIf="pavilion.invalid && (pavilion.dirty || pavilion.touched)" class="alert alert-danger small">
 
 			<div [hidden]="!pavilion.errors.required">
@@ -12,7 +13,7 @@
 	</div>
 	<div class="form-group">
 		<label>Número</label>
-		<input name='number' #number='ngModel' [(ngModel)]='room.number' class="form-control" required>
+		<input name='number' #number='ngModel' [(ngModel)]='service.formData.number' class="form-control" required>
 		<div *ngIf="number.invalid && (number.dirty || number.touched)" class="alert alert-danger small">
 
 			<div [hidden]="!number.errors.required">
@@ -27,7 +28,7 @@
 	<div class="form-row">
 		<div class="form-group col-md-6">
 			<label>Tipo</label>
-			<input name='type' #type='ngModel' [(ngModel)]='room.type' class="form-control" required>
+			<input name='type' #type='ngModel' [(ngModel)]='service.formData.type' class="form-control" required>
 			<div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger small">
 
 				<div [hidden]="!type.errors.required">

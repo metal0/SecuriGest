@@ -28,7 +28,7 @@ exports.room_create = function(req, res) {
 
 	// Validar existência
 	if (room.pavilion && room.number && room.type) {
-		Room.count({ pavilion: room.pavilion, number: room.number, type: room.type }).then((count) => {
+		Room.count({ pavilion: room.pavilion, number: room.number }).then((count) => {
 			if (count) {
 				res.status(409).send();
 			} else {

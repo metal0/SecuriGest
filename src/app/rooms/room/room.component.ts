@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RoomsServiceService } from '../rooms-service.service';
 import { FormGroup, FormControl, Validators, NgForm, NgModel } from '@angular/forms';
-import { Room } from '../room.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +13,6 @@ import { Router } from '@angular/router';
 export class RoomComponent implements OnInit {
 	form: NgForm;
 	@ViewChild('number') number: NgModel;
-	room = { pavilion: '', number: '', type: '' };
 	constructor(public service: RoomsServiceService, private router: Router) {}
 
 	ngOnInit() {
@@ -27,7 +25,7 @@ export class RoomComponent implements OnInit {
 		}
 	}
 	onSubmit() {
-		this.service.submitRoom(this.room).subscribe(
+		this.service.submitRoom().subscribe(
 			(res) => {
 				this.router.navigate([
 					'/rooms'
