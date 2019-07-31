@@ -30,6 +30,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarProfileComponent } from './calendar-profile/calendar-profile.component';
 import { EntriesExitsComponent } from './entries-exits/entries-exits.component';
+import { MaterialsComponent } from './materials/materials.component';
+import { MaterialComponent } from './materials/material/material.component';
+import { MaterialListComponent } from './materials/material-list/material-list.component';
 
 @NgModule({
 	declarations: [
@@ -44,7 +47,10 @@ import { EntriesExitsComponent } from './entries-exits/entries-exits.component';
 		RoomListComponent,
 		PerfilComponent,
 		CalendarProfileComponent,
-		EntriesExitsComponent
+		EntriesExitsComponent,
+		MaterialsComponent,
+		MaterialComponent,
+		MaterialListComponent
 	],
 	imports: [
 		BrowserModule,

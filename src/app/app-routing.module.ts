@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { AuthGuard } from './auth.guard';
 import { RoomsComponent } from './rooms/rooms.component';
+import { MaterialsComponent } from './materials/materials.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RecoverComponent } from './recover/recover.component';
 import { EntriesExitsComponent } from './entries-exits/entries-exits.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
 	{ path: 'perfil', component: PerfilComponent },
 	{ path: 'recover', component: RecoverComponent },
 	{ path: 'entry-exit', component: EntriesExitsComponent },
+	{ path: 'materiais', component: MaterialsComponent },
 	{ path: '**', redirectTo: '' }
 ];
 
