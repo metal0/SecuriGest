@@ -7,6 +7,7 @@ const db = `mongodb+srv://${process.env.API_USER}:${process.env.API_KEY}@${proce
 
 const userController = require('../controllers/userController');
 const roomController = require('../controllers/roomController');
+const materialController = require('../controllers/materialController');
 
 const middleware = require('../middlewares/authentication');
 const authentication = require('../helpers/authentication');
@@ -35,5 +36,8 @@ router.post('/rooms', roomController.room_create);
 // Autenticação //
 router.post('/login', authentication.login);
 router.post('/recover', authentication.recover);
-
+// Materiais //
+router.get('/materials', materialController.material_list);
+router.post('/materials', materialController.material_create);
+router.delete('/materials', materialController.material_delete);
 module.exports = router;

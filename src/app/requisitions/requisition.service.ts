@@ -1,28 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Material } from './material.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Injectable({
 	providedIn: 'root'
 })
-export class MaterialsServiceService {
+export class RequisitionService {
 	private MaterialsUrl = `${document.location.origin}/api/Materials`;
-	public formData = new Material();
-	public materials: Material[];
-	handleError: any;
-
+	materiais: [];
+	materiaisadd: [];
+	utilizador: string;
 	constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
-	submitMaterial() {
-		return this.http.post<any>(this.MaterialsUrl, this.formData);
-	}
 	getMaterials() {
 		this.http.get<any>(this.MaterialsUrl).subscribe(
 			(res) => {
 				console.log(res);
-				this.materials = res;
+				this.materiaisadd = res;
 			},
 			(err) => {
 				console.log(err);
@@ -39,21 +34,4 @@ export class MaterialsServiceService {
 			}
 		);
 	}
-	/* MARTIM AJUDA ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿
-	delMaterial(material: Material) {
-		const options = {
-			headers: new HttpHeaders({
-				'Content-Type': 'application/json'
-			}),
-			body: material
-		};
-
-༼ つ ಥ_ಥ ༽つ
-		return this.http
-			.delete(this.MaterialsUrl, options)
-			.map((response: Response) => response)
-			.toPromise()
-			.catch(this.handleError);
-	}
-	*/
 }

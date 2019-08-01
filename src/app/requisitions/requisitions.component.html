@@ -1,0 +1,38 @@
+<div class="jumbtron">
+	<h1 class="display-4 text-center">Requisição</h1>
+	<hr>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<form (ngSubmit)="onSubmit()" #form="ngForm">
+					<div class="form-group">
+						<label>Nome</label>
+						<input name='name' #name='ngModel' [(ngModel)]='service.utilizador' class="form-control"
+							required>
+						<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger small">
+							<div [hidden]="!name.errors.required">
+								Preenchimento obrigatório.
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-lg btn-outline-success btn-block "
+						[disabled]="!form.form.valid">Submeter</button>
+				</form>
+				<table class="table table-hover">
+					<tr *ngFor='let material of service.materiais'>
+						<td>[{{material.type}}]-{{material.number}}</td>
+						<td>{{material.name}}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-md-7">
+				<table class="table table-hover">
+					<tr *ngFor='let material of service.materiaisadd'>
+						<td>[{{material.type}}]-{{material.number}}</td>
+						<td>{{material.name}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -33,6 +33,7 @@ import { EntriesExitsComponent } from './entries-exits/entries-exits.component';
 import { MaterialsComponent } from './materials/materials.component';
 import { MaterialComponent } from './materials/material/material.component';
 import { MaterialListComponent } from './materials/material-list/material-list.component';
+import { RequisitionsComponent } from './requisitions/requisitions.component';
 
 @NgModule({
 	declarations: [
@@ -50,7 +51,8 @@ import { MaterialListComponent } from './materials/material-list/material-list.c
 		EntriesExitsComponent,
 		MaterialsComponent,
 		MaterialComponent,
-		MaterialListComponent
+		MaterialListComponent,
+		RequisitionsComponent
 	],
 	imports: [
 		BrowserModule,
