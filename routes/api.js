@@ -28,10 +28,11 @@ router.get('/', function(req, res, next) {
 // Utilizadores //
 router.get('/users', middleware.verifyToken, userController.user_list);
 router.post('/users', userController.user_create);
-
+router.get('/users', userController.findUser);
 // Salas //
 router.get('/rooms', roomController.room_list);
 router.post('/rooms', roomController.room_create);
+router.post('/roomsmodify', roomController.room_update);
 
 // Autenticação //
 router.post('/login', authentication.login);
@@ -39,5 +40,6 @@ router.post('/recover', authentication.recover);
 // Materiais //
 router.get('/materials', materialController.material_list);
 router.post('/materials', materialController.material_create);
-router.delete('/materials', materialController.material_delete);
+router.post('/materialdel', materialController.material_delete);
+//Requisições//
 module.exports = router;

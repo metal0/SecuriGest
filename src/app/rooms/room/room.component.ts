@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { RoomsServiceService } from '../rooms-service.service';
 import { FormGroup, FormControl, Validators, NgForm, NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Room } from '../room.model';
 
 @Component({
 	selector: 'app-room',
@@ -23,6 +24,7 @@ export class RoomComponent implements OnInit {
 		if (form != null) {
 			form.resetForm();
 		}
+		this.service.oldRoom = new Room();
 	}
 	onSubmit() {
 		this.service.submitRoom().subscribe(

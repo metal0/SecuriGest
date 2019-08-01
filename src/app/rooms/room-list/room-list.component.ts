@@ -16,4 +16,7 @@ export class RoomListComponent implements OnInit {
 		console.log('OnInit');
 		console.log(this.service.rooms);
 	}
+	deleteRoom(room) {
+		this.service.delRoom(room);
+	}
 }

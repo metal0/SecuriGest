@@ -11,6 +11,7 @@ import { MaterialsComponent } from './materials/materials.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RecoverComponent } from './recover/recover.component';
 import { EntriesExitsComponent } from './entries-exits/entries-exits.component';
+import { RequisitionsComponent } from './requisitions/requisitions.component';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
 	{ path: 'recover', component: RecoverComponent },
 	{ path: 'entry-exit', component: EntriesExitsComponent },
 	{ path: 'materiais', component: MaterialsComponent },
+	{ path: 'requisicoes', component: RequisitionsComponent },
 	{ path: '**', redirectTo: '' }
 ];
 

@@ -8,13 +8,20 @@ import { AuthService } from '../auth.service';
 })
 export class RoomsServiceService {
 	private roomsUrl = `${document.location.origin}/api/rooms`;
+	private roomModifyUrl = `${document.location.origin}/api/roomsmodify`;
+	private roomsDeleteUrl = `${document.location.origin}/api/roomsmodify`;
 	public formData = new Room();
+	public oldRoom = new Room();
 	public rooms: Room[];
 
 	constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
 	submitRoom() {
-		return this.http.post<any>(this.roomsUrl, this.formData);
+		if (!this.oldRoom.number) {
+			return this.http.post<any>(this.roomsUrl, this.formData);
+		} else {
+			return this.http.post<any>(this.roomModifyUrl, this.formData);
+		}
 	}
 	getRooms() {
 		this.http.get<any>(this.roomsUrl).subscribe(
@@ -37,5 +44,9 @@ export class RoomsServiceService {
 			}
 		);
 	}
-	delRoom() {}
+	delRoom(room) {
+		console.log(room);
+		console.log(this.roomsDeleteUrl);
+		return this.http.post<any>(this.roomsDeleteUrl, room);
+	}
 }

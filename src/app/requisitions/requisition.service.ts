@@ -8,6 +8,8 @@ import { AuthService } from '../auth.service';
 })
 export class RequisitionService {
 	private MaterialsUrl = `${document.location.origin}/api/Materials`;
+	private usersUrl = `${document.location.origin}/api/users`;
+	private userCUrl = `${document.location.origin}/api/user`;
 	materiais: [];
 	materiaisadd: [];
 	utilizador: string;
@@ -33,5 +35,8 @@ export class RequisitionService {
 				}
 			}
 		);
+	}
+	submitRequisition() {
+		return this.http.post<any>(this.usersUrl, name).subscribe((res) => {}, (err) => {});
 	}
 }

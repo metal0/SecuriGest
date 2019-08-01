@@ -34,6 +34,7 @@ import { MaterialsComponent } from './materials/materials.component';
 import { MaterialComponent } from './materials/material/material.component';
 import { MaterialListComponent } from './materials/material-list/material-list.component';
 import { RequisitionsComponent } from './requisitions/requisitions.component';
+import { MovementComponent } from './movement/movement/movement.component';
 
 @NgModule({
 	declarations: [
@@ -52,7 +53,8 @@ import { RequisitionsComponent } from './requisitions/requisitions.component';
 		MaterialsComponent,
 		MaterialComponent,
 		MaterialListComponent,
-		RequisitionsComponent
+		RequisitionsComponent,
+		MovementComponent
 	],
 	imports: [
 		BrowserModule,

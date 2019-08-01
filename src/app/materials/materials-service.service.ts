@@ -9,6 +9,7 @@ import { AuthService } from '../auth.service';
 })
 export class MaterialsServiceService {
 	private MaterialsUrl = `${document.location.origin}/api/Materials`;
+	private MaterialsDeleteUrl = `${document.location.origin}/api/materialdel`;
 	public formData = new Material();
 	public materials: Material[];
 	handleError: any;
@@ -38,6 +39,11 @@ export class MaterialsServiceService {
 				}
 			}
 		);
+	}
+	delMaterial(material: Material) {
+		console.log(material);
+		console.log(this.MaterialsDeleteUrl);
+		return this.http.post<any>(this.MaterialsDeleteUrl, material);
 	}
 	/* MARTIM AJUDA ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿
 	delMaterial(material: Material) {

@@ -2,6 +2,9 @@
 	<tr *ngFor='let room of service.rooms'>
 		<td>[{{room.number}}]-{{room.pavilion}}</td>
 		<td>{{room.type}}</td>
-		<td><button class="btn btn-sm btn-outline-danger"></button></td>
+		<td><button class="btn btn-sm btn-outline-warning" (click)="deleteRoom(room)">Apagar</button>
+		</td>
+		<td><button class="btn btn-sm btn-outline-danger" (click)="deleteRoom(room)">Apagar</button>
+		</td>
 	</tr>
 </table>

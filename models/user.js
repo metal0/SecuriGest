@@ -8,13 +8,14 @@ const userSchema = new mongoose.Schema({
 		index     : { unique: true },
 		required  : true
 	},
-	password: { type: String, required: true },
-	created_on: { type: Date, default: Date.now },
-	name:{type:String ,required: true},
-	biography: {type:String},
-	img: { data: Buffer, contentType: String },
-	calendar: {type:String},//MUDAR O TIPO
-	birthDate:{ type: Date}
+	password   : { type: String, required: true },
+	created_on : { type: Date, default: Date.now },
+	name       : { type: String, required: true },
+	biography  : { type: String },
+	img        : { data: Buffer, contentType: String },
+	calendar   : { type: String }, //MUDAR O TIPO
+	birthDate  : { type: Date }
 });
 
+userSchema.index({ email: 1 }, { unique: true });
 module.exports = mongoose.model('user', userSchema, 'users');

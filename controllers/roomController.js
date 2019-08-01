@@ -44,3 +44,30 @@ exports.room_create = function(req, res) {
 		});
 	}
 };
+/**
+ * Função para criação de salas
+ * @param {Request} req - Pedido
+ * @param {Response} res - Resposta
+ */
+exports.room_update = function(req, res) {
+	let roomData = req.body;
+	let room = new Room(roomData);
+
+	// Validar existência
+	if (room.pavilion && room.number && room.type) {
+		Room.count({ pavilion: room.pavilion, number: room.number }).then((count) => {
+			if (!count) {
+				res.status(409).send();
+			} else {
+				room.replaceOne((err, room) => {
+					if (err) {
+						debug(err);
+						res.status(400).send();
+					} else {
+						res.status(201).send();
+					}
+				});
+			}
+		});
+	}
+};

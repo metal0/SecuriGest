@@ -6,11 +6,12 @@
 			<div class="col-md-5">
 				<form (ngSubmit)="onSubmit()" #form="ngForm">
 					<div class="form-group">
-						<label>Nome</label>
-						<input name='name' #name='ngModel' [(ngModel)]='service.utilizador' class="form-control"
-							required>
-						<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger small">
-							<div [hidden]="!name.errors.required">
+						<label>Utilizador</label>
+						<input name='utilizador' #utilizador='ngModel' [(ngModel)]='service.utilizador'
+							class="form-control" required>
+						<div *ngIf="utilizador.invalid && (utilizador.dirty || utilizador.touched)"
+							class="alert alert-danger small">
+							<div [hidden]="!utilizador.errors.required">
 								Preenchimento obrigatório.
 							</div>
 						</div>

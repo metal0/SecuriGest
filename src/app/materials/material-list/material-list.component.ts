@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialsServiceService } from '../materials-service.service';
+import { Material } from '../material.model';
 
 @Component({
 	selector: 'app-material-list',
@@ -16,5 +17,8 @@ export class MaterialListComponent implements OnInit {
 		this.service.getMaterials();
 		console.log('OnInit');
 		console.log(this.service.materials);
+	}
+	deleteMat(material) {
+		this.service.delMaterial(material);
 	}
 }

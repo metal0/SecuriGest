@@ -27,7 +27,7 @@ exports.user_create = function(req, res) {
 	let userData = req.body;
 	let user = new User(userData);
 
-	// Validar existência de email
+	// Validar existência de nome
 	if (user.email) {
 		User.count({ email: user.email }).then((count) => {
 			if (count) {
@@ -46,4 +46,26 @@ exports.user_create = function(req, res) {
 			}
 		});
 	}
+};
+
+/**
+ * Função para listagem de utilizadores
+ * @param {Request} req - Pedido
+ * @param {Response} res - Resposta
+ */
+exports.findUser = function(req, res) {
+	let userData = req.body;
+
+	User.findOne({ email: userData.utilizador }, (err, user) => {
+		if (err) {
+			res.status(404).send();
+			debug(err);
+		} else {
+			if (!user) {
+				res.status(401).send('Utilizador inválido');
+			} else {
+				res.status(200).send({});
+			}
+		}
+	});
 };

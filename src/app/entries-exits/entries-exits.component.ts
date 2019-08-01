@@ -1,26 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { MaterialModule } from '../material/material.module';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 export interface DadosTabela {
 	name: string;
 	date: Date;
 	type: string;
 }
-
-const ELEMENT_DATA: DadosTabela[] = [
-	{ name: 'Hydrogen', date: new Date(), type: 'E' },
-	{ name: 'Helium', date: new Date(2123232323232), type: 'S' },
-	{ name: 'Lithium', date: new Date(21232), type: 'E' },
-	{ name: 'Beryllium', date: new Date(2121233), type: 'S' },
-	{ name: 'Boron', date: new Date(), type: 'S' },
-	{ name: 'Carbon', date: new Date(2123232323232), type: 'E' },
-	{ name: 'Nitrogen', date: new Date(2123232323232), type: 'E' },
-	{ name: 'Oxygen', date: new Date(253542452), type: 'S' },
-	{ name: 'Fluorine', date: new Date(34524532), type: 'S' },
-	{ name: 'Neon', date: new Date(235463486), type: 'S' }
-];
-
 @Component({
 	selector: 'app-entries-exits',
 	templateUrl: './entries-exits.component.html',
@@ -29,7 +18,8 @@ const ELEMENT_DATA: DadosTabela[] = [
 	]
 })
 export class EntriesExitsComponent implements OnInit {
-	dataSource;
+	private movementsUrl = `${document.location.origin}/api/movements`;
+	movements;
 	displayedColumns: string[] = [
 		'name',
 		'date',
@@ -37,12 +27,31 @@ export class EntriesExitsComponent implements OnInit {
 	];
 
 	applyFilter(filterValue: string) {
-		this.dataSource.filter = filterValue.trim().toLowerCase();
+		this.movements.filter = filterValue.trim().toLowerCase();
 	}
-	constructor() {}
+	constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
 	ngOnInit() {
-		this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+		this.http.get<any>(this.movementsUrl).subscribe(
+			(res) => {
+				console.log(res);
+				this.movements = new MatTableDataSource(res);
+			},
+			(err) => {
+				console.log(err);
+				if (err instanceof HttpErrorResponse) {
+					if (err.status === 401) {
+						this.router.navigate([
+							'/login'
+						]);
+					}
+					if (err.status === 500) {
+						this.authService.logoutUser();
+					}
+				}
+			}
+		);
+
 		// Mudar para base de dados;
 	}
 }
