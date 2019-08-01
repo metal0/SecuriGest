@@ -21,4 +21,8 @@ export class MaterialListComponent implements OnInit {
 	deleteMat(material) {
 		this.service.delMaterial(material);
 	}
+	modifyMat(material) {
+		this.service.formData = material;
+		this.service.oldFormData = material;
+	}
 }

@@ -11,13 +11,13 @@ export class RoomsServiceService {
 	private roomModifyUrl = `${document.location.origin}/api/roomsmodify`;
 	private roomsDeleteUrl = `${document.location.origin}/api/roomsmodify`;
 	public formData = new Room();
-	public oldRoom = new Room();
+	public oldFormData = new Room();
 	public rooms: Room[];
 
 	constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
 	submitRoom() {
-		if (!this.oldRoom.number) {
+		if (!this.oldFormData) {
 			return this.http.post<any>(this.roomsUrl, this.formData);
 		} else {
 			return this.http.post<any>(this.roomModifyUrl, this.formData);

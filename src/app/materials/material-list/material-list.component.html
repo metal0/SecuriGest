@@ -1,11 +1,12 @@
 <table class="table table-hover">
 	<tr>
-		<td>Tipo+Numero</td>
-		<td>Nome</td>
+		<th>Identificador</th>
+		<th>Nome</th>
 	</tr>
 	<tr *ngFor='let material of service.materials'>
 		<td>[{{material.type}}]-{{material.number}}</td>
 		<td>{{material.name}}</td>
+		<td><button class="btn btn-sm btn-outline-warning" (click)="modifyMat(material)">Modificar</button>
 		<td><button class="btn btn-sm btn-outline-danger" (click)="deleteMat(material)">Apagar</button>
 		</td>
 	</tr>

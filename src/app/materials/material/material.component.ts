@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MaterialsServiceService } from '../materials-service.service';
 import { FormGroup, FormControl, Validators, NgForm, NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Material } from '../material.model';
 
 @Component({
 	selector: 'app-material',
@@ -22,6 +23,7 @@ export class MaterialComponent implements OnInit {
 	resetForm(form: NgForm) {
 		if (form != null) {
 			form.resetForm();
+			this.service.oldFormData = new Material();
 		}
 	}
 	onSubmit() {

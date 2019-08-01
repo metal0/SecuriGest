@@ -11,13 +11,18 @@ export class MaterialsServiceService {
 	private MaterialsUrl = `${document.location.origin}/api/Materials`;
 	private MaterialsDeleteUrl = `${document.location.origin}/api/materialdel`;
 	public formData = new Material();
+	public oldFormData = new Material();
 	public materials: Material[];
 	handleError: any;
 
 	constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
 	submitMaterial() {
-		return this.http.post<any>(this.MaterialsUrl, this.formData);
+		if (this.oldFormData) {
+			/*     modificar material*/
+		} else {
+			return this.http.post<any>(this.MaterialsUrl, this.formData);
+		}
 	}
 	getMaterials() {
 		this.http.get<any>(this.MaterialsUrl).subscribe(

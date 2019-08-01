@@ -19,4 +19,8 @@ export class RoomListComponent implements OnInit {
 	deleteRoom(room) {
 		this.service.delRoom(room);
 	}
+	modifyRoom(room) {
+		this.service.formData = room;
+		this.service.oldFormData = room;
+	}
 }
