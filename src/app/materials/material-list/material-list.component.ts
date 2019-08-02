@@ -22,7 +22,7 @@ export class MaterialListComponent implements OnInit {
 		this.service.delMaterial(material);
 	}
 	modifyMat(material) {
-		this.service.formData = material;
-		this.service.oldFormData = material;
+		this.service.formData = Object.assign({}, material);
+		this.service.oldFormData = Object.assign({}, material);
 	}
 }

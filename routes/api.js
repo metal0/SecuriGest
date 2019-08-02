@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
 // Utilizadores //
 router.get('/users', middleware.verifyToken, userController.user_list);
 router.post('/users', userController.user_create);
-router.get('/users', userController.findUser);
+router.get('/users/:token', userController.findUser);
 // Salas //
 router.get('/rooms', roomController.room_list);
 router.post('/rooms', roomController.room_create);
@@ -40,6 +40,7 @@ router.post('/recover', authentication.recover);
 // Materiais //
 router.get('/materials', materialController.material_list);
 router.post('/materials', materialController.material_create);
-router.post('/materialdel', materialController.material_delete);
+router.put('/materials', materialController.material_update);
+router.delete('/materials/:id', materialController.material_delete);
 //Requisições//
 module.exports = router;

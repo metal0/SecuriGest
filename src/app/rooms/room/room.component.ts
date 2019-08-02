@@ -24,7 +24,7 @@ export class RoomComponent implements OnInit {
 		if (form != null) {
 			form.resetForm();
 		}
-		this.service.oldRoom = new Room();
+		this.service.oldFormData = new Room();
 	}
 	onSubmit() {
 		this.service.submitRoom().subscribe(

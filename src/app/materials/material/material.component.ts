@@ -12,26 +12,24 @@ import { Material } from '../material.model';
 	]
 })
 export class MaterialComponent implements OnInit {
-	form: NgForm;
 	@ViewChild('number') number: NgModel;
+	@ViewChild('form') form: NgForm;
 	constructor(public service: MaterialsServiceService, private router: Router) {}
 
 	ngOnInit() {
-		this.resetForm(this.form);
+		this.resetForm();
 	}
 
-	resetForm(form: NgForm) {
-		if (form != null) {
-			form.resetForm();
-			this.service.oldFormData = new Material();
-		}
+	resetForm() {
+		this.form.resetForm();
+		this.service.oldFormData = null;
+		this.service.formData = new Material();
 	}
 	onSubmit() {
 		this.service.submitMaterial().subscribe(
 			(res) => {
-				this.router.navigate([
-					'/materials'
-				]);
+				this.resetForm();
+				this.service.getMaterials();
 			},
 			(err) => {
 				this.number.control.setErrors({ conflict: true });

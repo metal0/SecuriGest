@@ -54,18 +54,22 @@ exports.user_create = function(req, res) {
  * @param {Response} res - Resposta
  */
 exports.findUser = function(req, res) {
-	let userData = req.body;
-
-	User.findOne({ email: userData.utilizador }, (err, user) => {
-		if (err) {
-			res.status(404).send();
-			debug(err);
-		} else {
-			if (!user) {
-				res.status(401).send('Utilizador inválido');
+	let token = req.params.token;
+	let payload = jwt.verify(token, process.env.TOKEN_SECRET || 'secretKey');
+	if (!payload) {
+		res.status(401).send();
+	} else {
+		User.findById(payload.subject, (err, user) => {
+			if (err) {
+				res.status(404).send();
+				debug(err);
 			} else {
-				res.status(200).send({});
+				if (!user) {
+					res.status(401).send('Utilizador inválido');
+				} else {
+					res.status(200).send({});
+				}
 			}
-		}
-	});
+		});
+	}
 };
